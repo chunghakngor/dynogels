@@ -7,7 +7,7 @@ const Serializer = require('../lib/serializer');
 const Table = require('../lib/table');
 const chai = require('chai');
 const assert = require('assert');
-const Joi = require('joi');
+const Joi = require('@hapi/joi');
 
 const expect = chai.expect;
 

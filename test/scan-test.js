@@ -5,7 +5,7 @@ const Schema = require('../lib/schema');
 const Scan = require('../lib/scan');
 const _ = require('lodash');
 const chai = require('chai');
-const Joi = require('joi');
+const Joi = require('@hapi/joi');
 
 const expect = chai.expect;
 

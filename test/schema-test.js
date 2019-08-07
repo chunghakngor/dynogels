@@ -2,7 +2,7 @@
 
 const Schema = require('../lib/schema');
 const chai = require('chai');
-const Joi = require('joi');
+const Joi = require('@hapi/joi');
 const _ = require('lodash');
 const sinon = require('sinon');
 

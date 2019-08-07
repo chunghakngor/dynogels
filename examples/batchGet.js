@@ -3,7 +3,7 @@
 const dynogels = require('../index');
 const async = require('async');
 const _ = require('lodash');
-const Joi = require('joi');
+const Joi = require('@hapi/joi');
 
 const AWS = dynogels.AWS;
 AWS.config.loadFromPath(`${process.env.HOME}/.ec2/credentials.json`);
