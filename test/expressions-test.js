@@ -3,7 +3,7 @@
 const expressions = require('../lib/expressions');
 const chai = require('chai');
 const Schema = require('../lib/schema');
-const Joi = require('joi');
+const Joi = require('@hapi/joi');
 
 const expect = chai.expect;
 

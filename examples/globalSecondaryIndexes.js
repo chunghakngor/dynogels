@@ -3,7 +3,7 @@
 const dynogels = require('../index');
 const _ = require('lodash');
 const util = require('util');
-const Joi = require('joi');
+const Joi = require('@hapi/joi');
 const async = require('async');
 
 // http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/GSI.html

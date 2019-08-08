@@ -7,7 +7,7 @@ const chai = require('chai');
 const assert = require('assert');
 const helper = require('./test-helper');
 const serializer = require('../lib/serializer');
-const Joi = require('joi');
+const Joi = require('@hapi/joi');
 
 const expect = chai.expect;
 

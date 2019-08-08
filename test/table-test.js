@@ -2,7 +2,7 @@
 
 const helper = require('./test-helper');
 const _ = require('lodash');
-const Joi = require('joi');
+const Joi = require('@hapi/joi');
 const Table = require('../lib/table');
 const Schema = require('../lib/schema');
 const Query = require('../lib//query');
@@ -556,7 +556,7 @@ describe('table', () => {
       const config = {
         hashKey: 'email',
         schema: {
-          email: Joi.string().email({ errorLevel: true }).required(),
+          email: Joi.string().email().required(),
           custom: Joi.any().forbidden().error(new Error('Only hashed passwords should be persisted')),
         }
       };

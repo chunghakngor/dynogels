@@ -4,7 +4,7 @@ const dynogels = require('../../index');
 const chai = require('chai');
 const _ = require('lodash');
 const helper = require('../test-helper');
-const Joi = require('joi');
+const Joi = require('@hapi/joi');
 
 const expect = chai.expect;
 

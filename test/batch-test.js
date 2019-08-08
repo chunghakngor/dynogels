@@ -6,7 +6,7 @@ const Schema = require('../lib/schema');
 const Item = require('../lib/item');
 const batch = require('../lib/batch');
 const Serializer = require('../lib/serializer');
-const Joi = require('joi');
+const Joi = require('@hapi/joi');
 const _ = require('lodash');
 
 const expect = chai.expect;

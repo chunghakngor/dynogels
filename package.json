@@ -28,25 +28,25 @@
   "license": "MIT",
   "dependencies": {
     "async": "2.5.0",
-    "uuid": "3.1.0"
+    "uuid": "^3.3.2"
   },
   "optionalDependencies": {
-    "aws-sdk": "2.463.0",
-    "lodash": "4.17.4"
+    "aws-sdk": "^2.463.0",
+    "lodash": "^4.17.4"
   },
   "devDependencies": {
+    "@hapi/joi": "^15.1.0",
     "chai": "4.1.2",
-    "coveralls": "3.0.0",
+    "coveralls": "^3.0.6",
     "eslint": "4.19.1",
     "eslint-config-airbnb-base": "12.1.0",
-    "eslint-plugin-import": "2.10.0",
+    "eslint-plugin-import": "^2.18.2",
     "istanbul": "^0.4.4",
-    "joi": "^11.3.4",
     "jscoverage": "^0.6.0",
     "mocha": "4.0.1",
     "sinon": "4.0.1"
   },
   "peerDependencies": {
-    "joi": "^11.3.4"
+    "@hapi/joi": "^15.1.0"
   }
 }
