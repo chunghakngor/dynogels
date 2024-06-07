@@ -1,14 +1,12 @@
-'use strict';
-
-const _ = require('lodash');
-const util = require('util');
-const AWS = require('aws-sdk');
-const Table = require('./table');
-const Schema = require('./schema');
-const serializer = require('./serializer');
-const batch = require('./batch');
-const Item = require('./item');
-const createTables = require('./createTables');
+import * as _ from "lodash";
+import * as util from "util";
+import * as AWS from "aws-sdk";
+import Table from "./table";
+import Schema from "./schema";
+import serializer from "./serializer";
+import batch from "./batch";
+import Item from "./item";
+import createTables from "./createTables";
 
 const dynogels = {};
 const internals = {};
@@ -25,7 +23,9 @@ dynogels.dynamoDriver = internals.dynamoDriver = (driver) => {
     const docClient = internals.loadDocClient(driver);
     internals.updateDynamoDBDocClientForAllModels(docClient);
   } else {
-    internals.dynamodb = internals.dynamodb || new dynogels.AWS.DynamoDB({ apiVersion: '2012-08-10' });
+    internals.dynamodb =
+      internals.dynamodb ||
+      new dynogels.AWS.DynamoDB({ apiVersion: "2012-08-10" });
   }
 
   return internals.dynamodb;
@@ -55,7 +55,9 @@ internals.loadDocClient = (driver) => {
   if (driver) {
     internals.docClient = new DocClient({ service: driver });
   } else {
-    internals.docClient = internals.docClient || new DocClient({ service: internals.dynamoDriver() });
+    internals.docClient =
+      internals.docClient ||
+      new DocClient({ service: internals.dynamoDriver() });
   }
 
   return internals.docClient;
@@ -64,7 +66,13 @@ internals.loadDocClient = (driver) => {
 internals.compileModel = (name, schema, log) => {
   const tableName = name.toLowerCase();
 
-  const table = new Table(tableName, schema, serializer, internals.loadDocClient(), log);
+  const table = new Table(
+    tableName,
+    schema,
+    serializer,
+    internals.loadDocClient(),
+    log
+  );
 
   const Model = function (attrs) {
     Item.call(this, attrs, table);
@@ -102,7 +110,7 @@ internals.compileModel = (name, schema, log) => {
 
   Object.defineProperties(Model, {
     docClient: { get: () => table.docClient },
-    schema: { get: () => table.schema }
+    schema: { get: () => table.schema },
   });
 
   Model.config = (config) => {
@@ -141,12 +149,18 @@ dynogels.Set = function () {
 
 dynogels.define = (modelName, config) => {
   if (_.isFunction(config)) {
-    throw new Error('define no longer accepts schema callback, migrate to new api');
+    throw new Error(
+      "define no longer accepts schema callback, migrate to new api"
+    );
   }
 
   const schema = new Schema(config);
 
-  const compiledTable = internals.compileModel(modelName, schema, config.log || dynogels.log);
+  const compiledTable = internals.compileModel(
+    modelName,
+    schema,
+    config.log || dynogels.log
+  );
 
   return compiledTable;
 };
@@ -160,7 +174,7 @@ dynogels.model = (name, model) => {
 };
 
 dynogels.createTables = (options, callback) => {
-  if (typeof options === 'function' && !callback) {
+  if (typeof options === "function" && !callback) {
     callback = options;
     options = {};
   }
@@ -175,10 +189,8 @@ dynogels.types = Schema.types;
 
 dynogels.reset();
 
-module.exports = (options) => {
-  dynogels.AWS = _.get(options, 'AwsSDK', null)
-    ? options.AwsSDK
-    : AWS;
+export default (options: any) => {
+  dynogels.AWS = _.get(options, "AwsSDK", null) ? options.AwsSDK : AWS;
 
   return dynogels;
 };
