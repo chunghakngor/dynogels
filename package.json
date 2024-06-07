@@ -44,7 +44,8 @@
     "istanbul": "^0.4.4",
     "jscoverage": "^0.6.0",
     "mocha": "4.0.1",
-    "sinon": "4.0.1"
+    "sinon": "4.0.1",
+    "typescript": "^5.4.5"
   },
   "peerDependencies": {
     "@hapi/joi": "^15.1.0"
